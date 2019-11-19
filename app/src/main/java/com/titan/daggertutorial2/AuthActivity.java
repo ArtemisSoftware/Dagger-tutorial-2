@@ -28,9 +28,6 @@ public class AuthActivity extends DaggerAppCompatActivity {
         setContentView(R.layout.activity_auth);
 
         setLogo();
-
-        //Timber.d("onCreate: sdfsdf = " + sdfsdf);
-        //Timber.d("onCreate: is app null? " + isAppNull);
     }
 
     private void setLogo(){

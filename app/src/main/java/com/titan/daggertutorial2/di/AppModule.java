@@ -10,6 +10,8 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.titan.daggertutorial2.R;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import timber.log.Timber;
@@ -17,6 +19,7 @@ import timber.log.Timber;
 @Module
 public class AppModule {
 
+    @Singleton
     @Provides
     static RequestOptions provideRequestOptions(){
         Timber.d("provideRequestOptions");
@@ -26,6 +29,7 @@ public class AppModule {
                 .error(R.drawable.white_background);
     }
 
+    @Singleton
     @Provides
     static RequestManager provideGlideInstance(Application application, RequestOptions requestOptions){
         Timber.d("provideGlideInstance");
@@ -34,6 +38,7 @@ public class AppModule {
                 .setDefaultRequestOptions(requestOptions);
     }
 
+    @Singleton
     @Provides
     static Drawable provideAppDrawable(Application application){
         Timber.d("provideAppDrawable");
