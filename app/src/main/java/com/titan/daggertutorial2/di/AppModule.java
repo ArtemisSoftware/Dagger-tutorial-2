@@ -1,28 +1,43 @@
 package com.titan.daggertutorial2.di;
 
 import android.app.Application;
+import android.graphics.drawable.Drawable;
+
+import androidx.core.content.ContextCompat;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.request.RequestOptions;
+import com.titan.daggertutorial2.R;
 
 import dagger.Module;
 import dagger.Provides;
+import timber.log.Timber;
 
 @Module
 public class AppModule {
 
     @Provides
-    static String someString(){
-        return  "this is a test string";
+    static RequestOptions provideRequestOptions(){
+        Timber.d("provideRequestOptions");
+
+        return RequestOptions
+                .placeholderOf(R.drawable.white_background)
+                .error(R.drawable.white_background);
     }
 
     @Provides
-    static boolean getApp(Application application){
-        return  application == null;
+    static RequestManager provideGlideInstance(Application application, RequestOptions requestOptions){
+        Timber.d("provideGlideInstance");
+
+        return Glide.with(application)
+                .setDefaultRequestOptions(requestOptions);
     }
 
     @Provides
-    static int someInt(String string){
-        if(string.equals("this is a test string")){
-            return 1;
-        }
-        return 0;
+    static Drawable provideAppDrawable(Application application){
+        Timber.d("provideAppDrawable");
+        return ContextCompat.getDrawable(application, R.drawable.android_dagger_2_logo);
     }
+
 }
