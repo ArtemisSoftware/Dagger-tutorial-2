@@ -35,7 +35,7 @@ public class SessionManager {
             });
         }
         else{
-            Timber.d("Cached user is NULL");
+            Timber.e("Cached user is NULL");
         }
     }
 
