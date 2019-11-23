@@ -17,7 +17,7 @@ public class SessionManager {
 
     @Inject
     public SessionManager() {
-        Timber.d("SessionManager constructor");
+        Timber.d("SessionManager constructor. cachedUser: " + cachedUser.getValue());
     }
 
     public void authenticateWithId(final LiveData<AuthResource<User>> source){
