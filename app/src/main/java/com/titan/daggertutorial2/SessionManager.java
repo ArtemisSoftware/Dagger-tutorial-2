@@ -8,9 +8,11 @@ import com.titan.daggertutorial2.models.User;
 import com.titan.daggertutorial2.ui.auth.AuthResource;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import timber.log.Timber;
 
+@Singleton
 public class SessionManager {
 
     private MediatorLiveData<AuthResource<User>> cachedUser = new MediatorLiveData<>();
