@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 
 import com.titan.daggertutorial2.BaseActivity;
 import com.titan.daggertutorial2.R;
+import com.titan.daggertutorial2.ui.main.profile.ProfileFragment;
+
+import timber.log.Timber;
 
 public class MainActivity extends BaseActivity {
 
@@ -17,6 +20,13 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Timber.d("creating...");
+        testFragment();
+    }
+
+    private void testFragment(){
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new ProfileFragment()).commit();
     }
 
     @Override
