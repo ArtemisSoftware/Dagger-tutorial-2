@@ -3,6 +3,7 @@ package com.titan.daggertutorial2.di;
 import com.titan.daggertutorial2.di.auth.AuthModule;
 import com.titan.daggertutorial2.di.auth.AuthViewModelsModule;
 import com.titan.daggertutorial2.di.main.MainFragmentBuildersModule;
+import com.titan.daggertutorial2.di.main.MainModule;
 import com.titan.daggertutorial2.di.main.MainViewModelsModule;
 import com.titan.daggertutorial2.ui.auth.AuthActivity;
 import com.titan.daggertutorial2.ui.main.MainActivity;
@@ -20,7 +21,7 @@ public abstract class ActivityBuildersModule {
     abstract AuthActivity contributeAuthActivity();
 
     @ContributesAndroidInjector(
-            modules = {MainFragmentBuildersModule.class, MainViewModelsModule.class}
+            modules = {MainFragmentBuildersModule.class, MainViewModelsModule.class, MainModule.class}
     )
     abstract MainActivity contributeMainActivity();
 }
