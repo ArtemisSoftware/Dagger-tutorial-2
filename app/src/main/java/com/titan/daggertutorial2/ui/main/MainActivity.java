@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.titan.daggertutorial2.BaseActivity;
 import com.titan.daggertutorial2.R;
+import com.titan.daggertutorial2.ui.main.posts.PostsFragments;
 import com.titan.daggertutorial2.ui.main.profile.ProfileFragment;
 
 import timber.log.Timber;
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void testFragment(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new ProfileFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new PostsFragments()).commit();
     }
 
     @Override
