@@ -10,6 +10,7 @@ import timber.log.Timber;
 @Module
 public class AuthModule {
 
+    @AuthScope
     @Provides
     static AuthApi provideAuthApi(Retrofit retrofit){
 
