@@ -9,8 +9,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.titan.daggertutorial2.R;
+import com.titan.daggertutorial2.models.User;
 import com.titan.daggertutorial2.util.Constants;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -59,6 +61,14 @@ public class AppModule {
     static Drawable provideAppDrawable(Application application){
         Timber.d("provideAppDrawable");
         return ContextCompat.getDrawable(application, R.drawable.android_dagger_2_logo);
+    }
+
+
+    @Singleton
+    @Provides
+    @Named("app_user")
+    static User someUser(){
+        return new User();
     }
 
 }

@@ -20,6 +20,7 @@ import com.titan.daggertutorial2.ui.main.MainActivity;
 import com.titan.daggertutorial2.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import dagger.android.support.DaggerAppCompatActivity;
 import timber.log.Timber;
@@ -40,6 +41,14 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     @Inject
     RequestManager requestManager;
 
+    @Inject
+    @Named("app_user")
+    User userNumber1;
+
+    @Inject
+    @Named("auth_user")
+    User userNumber2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +63,9 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
 
         setLogo();
         subscribeObservers();
+
+        Timber.d("onCreate userNumber1: " + userNumber1);
+        Timber.d("onCreate userNumber2:" + userNumber2);
     }
 
     private void subscribeObservers(){
